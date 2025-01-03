@@ -106,6 +106,8 @@ class AjaxDatatableView(View):
                 'width': None,
                 'choices': None,
                 'initialSearchValue': None,
+                'searchPlaceholder': '...',
+                'searchInputType': 'text',
                 'autofilter': False,
                 'boolean': False,
                 'max_length': 0,

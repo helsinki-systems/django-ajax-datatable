@@ -148,9 +148,9 @@ window.AjaxDatatableViewUtils = (function() {
                         }
                         else {
                             var input = $('<input>')
-                                .attr('type', 'text')
+                                .attr('type', item.searchInputType)
                                 .attr('data-index', index)
-                                .attr('placeholder', '...')
+                                .attr('placeholder', item.searchPlaceholder)
                                 .attr('value', item.initialSearchValue ? item.initialSearchValue : '')
                             html = $('<div>').append(input).html();
                         }
