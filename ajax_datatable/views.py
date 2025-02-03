@@ -551,7 +551,7 @@ class AjaxDatatableView(View):
                 pass
             else:
                 qs = self.optimize_queryset(qs)
-        qs = self.prepare_queryset(params, qs)
+        qs = list(self.prepare_queryset(params, qs))
         if TRACE_QUERYSET:
             prettyprint_queryset(qs)
 
@@ -559,7 +559,7 @@ class AjaxDatatableView(View):
         # paginator = Paginator(qs, params['length'] if params['length'] != -1 else qs.count())
         if params['length'] == -1:
             # fix: prevent ZeroDivisionError
-            paginator = Paginator(qs, max(1, qs.count()))
+            paginator = Paginator(qs, max(1, len(qs)))
         else:
             paginator = Paginator(qs, params['length'])
         response_dict = self.get_response_dict(request, paginator, params['draw'], params['start'])
